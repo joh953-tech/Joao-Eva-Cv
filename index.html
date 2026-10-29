@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo - João Eva</title>
+    <style>
+        /* Estilos gerais e Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Estrutura do Currículo (Tamanho A4) */
+        .cv-container {
+            display: flex;
+            width: 210mm;
+            min-height: 297mm;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        /* Coluna Esquerda (Preta) */
+        .left-column {
+            width: 35%;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Fotografia com borda roxa */
+        .profile-photo {
+            width: 100%;
+            border: 3px solid #8A2BE2;
+            margin-bottom: 20px;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+            background-color: #333;
+        }
+
+        .left-column h1 {
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .left-column .basic-info {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+
+        .left-column h2 {
+            color: #4CAF50;
+            font-size: 16px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            letter-spacing: 1px;
+        }
+
+        .left-column p {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #cccccc;
+            margin-bottom: 15px;
+        }
+
+        .left-column ul {
+            list-style: none;
+            font-size: 12px;
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        .contact-info {
+            margin-top: auto;
+            padding-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 11px;
+            color: #cccccc;
+        }
+
+        .contact-item svg {
+            width: 16px;
+            height: 16px;
+            fill: #4CAF50;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        /* Coluna Direita (Branca) */
+        .right-column {
+            width: 65%;
+            padding: 40px;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .right-column h2 {
+            font-size: 18px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #000000;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+            letter-spacing: 1px;
+        }
+
+        .right-column h2:first-child {
+            margin-top: 0;
+        }
+
+        .right-column h3 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        .right-column ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .right-column li {
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            color: #333333;
+        }
+
+        .skills-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Estilos de Impressão */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+            .cv-container {
+                box-shadow: none;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+        
+        <!-- COLUNA ESQUERDA -->
+        <div class="left-column">
+            <!-- SE O NOME DA FOTO ESTIVER EXATAMENTE COMO foto.jpg ELA VAI APARECER AQUI -->
+            <img src="foto.jpg" alt="Fotografia de João Eva" class="profile-photo">
+            
+            <h1>JOÃO EVA</h1>
+            <div class="basic-info">
+                Estudante<br>
+                Nascido: 29/07/2008<br>
+                Curso: Técnico de Gestão e Programação de Sistemas Informáticos
+            </div>
+
+            <h2>Sobre Mim</h2>
+            <p>Sou uma pessoa responsável, curiosa e gosto muito de ajudar as pessoas e de comunicar. Procuro desenvolver mais competências e novos desafios para aprender novos conhecimentos na área profissional e pessoal.</p>
+
+            <h2>Educação</h2>
+            <p>
+                <strong>Escola Técnico Profissional de Cantanhede</strong><br>
+                Secundária 2024 - Presente
+            </p>
+            <p>
+                <strong>Escola Básica Marquês de Marialva (EB 2,3)</strong><br>
+                2º Ciclo 2018 - 2024
+            </p>
+
+            <h2>Línguas</h2>
+            <ul>
+                <li>Português - Nativo</li>
+                <li>Inglês - A1</li>
+            </ul>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    937208389
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    joaoeva.164045@etpc.pt - Institucional<br>
+                    joaoeva953@gmail.com - Pessoal
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Cantanhede
+                </div>
+            </div>
+        </div>
+
+        <!-- COLUNA DIREITA -->
+        <div class="right-column">
+            
+            <h2>Projetos</h2>
+            <ul>
+                <li>Desenvolvedor de Jogo Educativo | Santa Casa da Misericórdia.</li>
+                <li>Desenvolvimento do jogo "Mastermind" focado no entretenimento e desenvolvimento cognitivo de crianças.</li>
+                <li>Desenvolvimento Web e Aplicações.</li>
+                <li>Desenvolvimento de sites e aplicações web utilizando PHP e bases de dados MySQL.</li>
+            </ul>
+
+            <h2>Voluntariado</h2>
+            
+            <h3>Ajudante Técnico de Multimédia | Taça do Mundo de Ginástica Aeróbica (Cantanhede)</h3>
+            <ul>
+                <li>Suporte técnico na operação de câmaras de filmagem e recolha de fotografia de atletas durante a competição internacional.</li>
+            </ul>
+
+            <h3>Apoio Comunitário | Sopa Solidária (ETPC)</h3>
+            <ul>
+                <li>Colaboração ativa na iniciativa solidária escolar a favor do projeto CASA da Figueira da Foz.</li>
+            </ul>
+
+            <h3>Apoio Logístico | Torneio de Futsal Solidário (CERCIMIRA)</h3>
+            <ul>
+                <li>Apoio na organização e realização do torneio de futsal para angariação de fundos destinados ao lar de idosos da CERCIMIRA.</li>
+            </ul>
+
+            <h2>Habilidades</h2>
+            <div class="skills-title">Linguagens de programação</div>
+            <ul>
+                <li>C++</li>
+                <li>C#</li>
+                <li>Javascript</li>
+                <li>HTML/CSS</li>
+                <li>PHP & MySQL</li>
+            </ul>
+            
+        </div>
+
+    </div>
+
+</body>
+</html>
