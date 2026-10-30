@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Apresentação - João Eva</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #222222;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* Barra de Ações Superior */
+        .action-bar {
+            width: 210mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #000000;
+            color: #ffffff;
+            border: 2px solid #8A2BE2;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #8A2BE2;
+            color: #ffffff;
+        }
+
+        .btn-secondary {
+            background-color: #ffffff;
+            color: #000000;
+            border: 2px solid #000000;
+        }
+
+        .btn-secondary:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        /* Folha A4 da Carta */
+        .letter-container {
+            width: 210mm;
+            min-height: 297mm;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            padding: 50px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Cabeçalho do Remetente */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 3px solid #000000;
+            padding-bottom: 20px;
+            margin-bottom: 35px;
+        }
+
+        .sender-name {
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .sender-subtitle {
+            font-size: 13px;
+            color: #4CAF50;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .sender-contacts {
+            font-size: 12px;
+            text-align: right;
+            line-height: 1.6;
+            color: #444444;
+        }
+
+        /* Destinatário e Data */
+        .meta-info {
+            margin-bottom: 30px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .date {
+            margin-bottom: 20px;
+            color: #666666;
+            font-weight: 500;
+        }
+
+        .recipient {
+            background-color: #f9f9f9;
+            border-left: 4px solid #8A2BE2;
+            padding: 12px 18px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .recipient-title {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* Assunto */
+        .subject {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Corpo do Texto */
+        .letter-body {
+            font-size: 13.5px;
+            line-height: 1.7;
+            color: #222222;
+            text-align: justify;
+        }
+
+        .letter-body p {
+            margin-bottom: 16px;
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: #000000;
+        }
+
+        /* Despedida e Assinatura */
+        .closing {
+            margin-top: 30px;
+            font-size: 13.5px;
+            line-height: 1.6;
+        }
+
+        .signature-space {
+            margin-top: 40px;
+            border-top: 1px solid #cccccc;
+            width: 220px;
+            padding-top: 8px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Estilos de Impressão */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+            .action-bar {
+                display: none;
+            }
+            .letter-container {
+                box-shadow: none;
+                width: 100%;
+                min-height: 100vh;
+                padding: 40px 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA DE AÇÕES -->
+    <div class="action-bar">
+        <a href="index.html" class="btn btn-secondary">
+            ← Voltar ao CV
+        </a>
+        <button onclick="window.print()" class="btn">
+            🖨️ Imprimir / Guardar PDF
+        </button>
+    </div>
+
+    <!-- DOCUMENTO A4 DA CARTA -->
+    <div class="letter-container">
+        
+        <div>
+            <!-- CABEÇALHO -->
+            <div class="header">
+                <div>
+                    <div class="sender-name">João Eva</div>
+                    <div class="sender-subtitle">Técnico de Gestão e Programação de Sistemas Informáticos</div>
+                </div>
+                <div class="sender-contacts">
+                    Cantanhede, Portugal<br>
+                    📞 937208389<br>
+                    ✉️ joaoeva.164045@etpc.pt<br>
+                    ✉️ joaoeva953@gmail.com
+                </div>
+            </div>
+
+            <!-- DATA E DESTINATÁRIO -->
+            <div class="meta-info">
+                <div class="date" id="current-date">Cantanhede, [Data Atual]</div>
+                
+                <div class="recipient">
+                    <div class="recipient-title">À/Ao Responsável de Recrutamento / Recursos Humanos</div>
+                    <div>[Nome da Empresa / Entidade]</div>
+                    <div>[Localidade da Empresa]</div>
+                </div>
+            </div>
+
+            <!-- ASSUNTO -->
+            <div class="subject">
+                Assunto: Candidatura a Estágio Curricular / Formação em Contexto de Trabalho (FCT)
+            </div>
+
+            <!-- CORPO DA CARTA -->
+            <div class="letter-body">
+                <p>Exmo.(a) Senhor(a) Recrutador(a),</p>
+
+                <p>Escrevo para manifestar o meu forte interesse em realizar o meu estágio curricular (Formação em Contexto de Trabalho) na <span class="highlight">[Nome da Empresa]</span>, motivado pelo trabalho de excelência que a vossa organização desenvolve no setor da tecnologia e inovação.</p>
+
+                <p>Encontro-me atualmente a frequentar o 12.º ano do Curso Profissional de <span class="highlight">Técnico de Gestão e Programação de Sistemas Informáticos (TGPSI)</span> na Escola Técnico Profissional de Cantanhede. Ao longo da minha formação académica, desenvolvi competências em desenvolvimento web e aplicações com PHP e bases de dados MySQL, bem como em linguagens de programação como C++, C#, JavaScript e HTML/CSS.</p>
+
+                <p>Durante o meu percurso, apliquei estes conhecimentos em projetos práticos marcantes, destacando-se o desenvolvimento do jogo educativo <span class="highlight">"Mastermind"</span> para a Santa Casa da Misericórdia, focado no entretenimento e desenvolvimento cognitivo infantil. Adicionalmente, o meu envolvimento em ações de voluntariado — como assistente técnico de multimédia na Taça do Mundo de Ginástica Aeróbica e no apoio a iniciativas comunitárias da ETPC e CERCIMIRA — permitiu-me consolidar a capacidade de trabalhar em equipa, resolver problemas sob pressão e comunicar com eficácia.</p>
+
+                <p>Considero-me uma pessoa responsável, curiosa e focada na melhoria contínua. Acredito que a minha preparação técnica, combinada com a minha vontade constante de aprender, constituirá uma mais-valia para a equipa da <span class="highlight">[Nome da Empresa]</span>.</p>
+
+                <p>Agradeço desde já a atenção dedicada à minha candidatura e manifesto a minha total disponibilidade para agendar uma entrevista, na qual poderei aprofundar a apresentação do meu perfil. Em anexo, remeto o meu Currículo Vitae.</p>
+            </div>
+        </div>
+
+        <!-- ASSINATURA -->
+        <div class="closing">
+            <p>Com os melhores cumprimentos,</p>
+            <div class="signature-space">
+                João Eva
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const today = new Date().toLocaleDateString('pt-PT', options);
+        document.getElementById('current-date').textContent = `Cantanhede, ${today}`;
+    </script>
+
+</body>
+</html>

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currículo - João Eva</title>
     <style>
-        /* Estilos gerais e Reset */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -16,8 +15,39 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f4f9;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             padding: 20px;
+        }
+
+        /* Barra de Ações Superior */
+        .action-bar {
+            width: 210mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #000000;
+            color: #ffffff;
+            border: 2px solid #8A2BE2;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #8A2BE2;
+            color: #ffffff;
         }
 
         /* Estrutura do Currículo (Tamanho A4) */
@@ -35,38 +65,56 @@
             width: 35%;
             background-color: #000000;
             color: #ffffff;
-            padding: 40px 30px;
+            padding: 40px 25px;
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
 
-        /* Fotografia com borda roxa */
+        /* Moldura com Fundo Branco e Corte Circular */
+        .photo-wrapper {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            border: 4px solid #8A2BE2;
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
         .profile-photo {
             width: 100%;
-            border: 3px solid #8A2BE2;
-            margin-bottom: 20px;
+            height: 100%;
             object-fit: cover;
-            aspect-ratio: 1 / 1;
-            background-color: #333;
+            object-position: center top;
+            border-radius: 50%;
+        }
+
+        .left-column-content {
+            width: 100%;
         }
 
         .left-column h1 {
-            font-size: 28px;
+            font-size: 26px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .left-column .basic-info {
-            font-size: 12px;
+            font-size: 11px;
             line-height: 1.5;
             color: #cccccc;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .left-column h2 {
             color: #4CAF50;
-            font-size: 16px;
+            font-size: 15px;
             text-transform: uppercase;
             margin-bottom: 10px;
             margin-top: 20px;
@@ -74,7 +122,7 @@
         }
 
         .left-column p {
-            font-size: 12px;
+            font-size: 11px;
             line-height: 1.5;
             color: #cccccc;
             margin-bottom: 15px;
@@ -82,29 +130,31 @@
 
         .left-column ul {
             list-style: none;
-            font-size: 12px;
+            font-size: 11px;
             color: #cccccc;
             line-height: 1.6;
         }
 
         .contact-info {
             margin-top: auto;
-            padding-top: 30px;
+            padding-top: 25px;
+            width: 100%;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
-            font-size: 11px;
+            margin-bottom: 12px;
+            font-size: 10px;
             color: #cccccc;
+            word-break: break-all;
         }
 
         .contact-item svg {
-            width: 16px;
-            height: 16px;
+            width: 15px;
+            height: 15px;
             fill: #4CAF50;
-            margin-right: 10px;
+            margin-right: 8px;
             flex-shrink: 0;
         }
 
@@ -117,12 +167,12 @@
         }
 
         .right-column h2 {
-            font-size: 18px;
+            font-size: 17px;
             text-transform: uppercase;
             border-bottom: 2px solid #000000;
-            padding-bottom: 5px;
-            margin-bottom: 20px;
-            margin-top: 30px;
+            padding-bottom: 4px;
+            margin-bottom: 15px;
+            margin-top: 25px;
             letter-spacing: 1px;
         }
 
@@ -131,28 +181,28 @@
         }
 
         .right-column h3 {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: bold;
-            margin-bottom: 10px;
-            margin-top: 20px;
+            margin-bottom: 8px;
+            margin-top: 15px;
         }
 
         .right-column ul {
-            padding-left: 20px;
-            margin-bottom: 20px;
+            padding-left: 18px;
+            margin-bottom: 15px;
         }
 
         .right-column li {
-            font-size: 13px;
-            line-height: 1.6;
-            margin-bottom: 8px;
+            font-size: 12px;
+            line-height: 1.5;
+            margin-bottom: 6px;
             color: #333333;
         }
 
         .skills-title {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         /* Estilos de Impressão */
@@ -160,6 +210,9 @@
             body {
                 background-color: #ffffff;
                 padding: 0;
+            }
+            .action-bar {
+                display: none;
             }
             .cv-container {
                 box-shadow: none;
@@ -172,52 +225,69 @@
 </head>
 <body>
 
+    <!-- BARRA SUPERIOR COM AÇÕES -->
+    <div class="action-bar">
+        <a href="carta.html" class="btn">
+            ✉️ Ver Carta de Apresentação →
+        </a>
+        <button onclick="window.print()" class="btn">
+            🖨️ Guardar em PDF / Imprimir
+        </button>
+    </div>
+
     <div class="cv-container">
         
         <!-- COLUNA ESQUERDA -->
         <div class="left-column">
-            <!-- SE O NOME DA FOTO ESTIVER EXATAMENTE COMO foto.jpg ELA VAI APARECER AQUI -->
-            <img src="foto.jpg" alt="Fotografia de João Eva" class="profile-photo">
             
-            <h1>JOÃO EVA</h1>
-            <div class="basic-info">
-                Estudante<br>
-                Nascido: 29/07/2008<br>
-                Curso: Técnico de Gestão e Programação de Sistemas Informáticos
+            <div class="photo-wrapper">
+                <img src="foto.jpg" alt="Fotografia de João Eva" class="profile-photo">
             </div>
-
-            <h2>Sobre Mim</h2>
-            <p>Sou uma pessoa responsável, curiosa e gosto muito de ajudar as pessoas e de comunicar. Procuro desenvolver mais competências e novos desafios para aprender novos conhecimentos na área profissional e pessoal.</p>
-
-            <h2>Educação</h2>
-            <p>
-                <strong>Escola Técnico Profissional de Cantanhede</strong><br>
-                Secundária 2024 - Presente
-            </p>
-            <p>
-                <strong>Escola Básica Marquês de Marialva (EB 2,3)</strong><br>
-                2º Ciclo 2018 - 2024
-            </p>
-
-            <h2>Línguas</h2>
-            <ul>
-                <li>Português - Nativo</li>
-                <li>Inglês - A1</li>
-            </ul>
-
-            <div class="contact-info">
-                <div class="contact-item">
-                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                    937208389
+            
+            <div class="left-column-content">
+                <h1>JOÃO EVA</h1>
+                <div class="basic-info">
+                    Estudante<br>
+                    Nascido: 29/07/2008<br>
+                    Curso: Técnico de Gestão e Programação de Sistemas Informáticos
                 </div>
-                <div class="contact-item">
-                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    joaoeva.164045@etpc.pt - Institucional<br>
-                    joaoeva953@gmail.com - Pessoal
-                </div>
-                <div class="contact-item">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    Cantanhede
+
+                <h2>Sobre Mim</h2>
+                <p>Sou uma pessoa responsável, curiosa e gosto muito de ajudar as pessoas e de comunicar. Procuro desenvolver mais competências e novos desafios para aprender novos conhecimentos na área profissional e pessoal.</p>
+
+                <h2>Educação</h2>
+                <p>
+                    <strong>Escola Técnico Profissional de Cantanhede</strong><br>
+                    Secundária 2024 - Presente
+                </p>
+                <p>
+                    <strong>Escola Básica Marquês de Marialva (EB 2,3)</strong><br>
+                    2º Ciclo 2018 - 2024
+                </p>
+
+                <h2>Línguas</h2>
+                <ul>
+                    <li>Português - Nativo</li>
+                    <li>Inglês - A1</li>
+                </ul>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        937208389
+                    </div>
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        joaoeva.164045@etpc.pt
+                    </div>
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        joaoeva953@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        Cantanhede
+                    </div>
                 </div>
             </div>
         </div>
@@ -227,10 +297,8 @@
             
             <h2>Projetos</h2>
             <ul>
-                <li>Desenvolvedor de Jogo Educativo | Santa Casa da Misericórdia.</li>
-                <li>Desenvolvimento do jogo "Mastermind" focado no entretenimento e desenvolvimento cognitivo de crianças.</li>
-                <li>Desenvolvimento Web e Aplicações.</li>
-                <li>Desenvolvimento de sites e aplicações web utilizando PHP e bases de dados MySQL.</li>
+                <li><strong>Desenvolvedor de Jogo Educativo | Santa Casa da Misericórdia:</strong> Desenvolvimento do jogo "Mastermind" focado no entretenimento e desenvolvimento cognitivo de crianças.</li>
+                <li><strong>Desenvolvimento Web e Aplicações:</strong> Criação de sites e aplicações web utilizando PHP e bases de dados MySQL.</li>
             </ul>
 
             <h2>Voluntariado</h2>
